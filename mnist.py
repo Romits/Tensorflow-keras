@@ -23,6 +23,9 @@ def main():
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
     model.fit(x_train, y_train, epochs=100, callbacks=[callbacks])
+    test_loss = model.evaluate(x_test, y_test)
+
+    print("Accuracy on the test data is {}".format(test_loss[1] *100))
 
 
 if __name__=="__main__":
